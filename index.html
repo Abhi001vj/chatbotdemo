@@ -1,0 +1,30 @@
+<div id="webchat"></div>
+<!-- <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@0.11.5/lib/index.min.js"></script> -->
+<!-- // you can add a version tag if you need, e.g for version 0.11.5 https://cdn.jsdelivr.net/npm/rasa-webchat@0.11.5/lib/index.min.js -->
+<script>!(function () {
+  let e = document.createElement("script"),
+    t = document.head || document.getElementsByTagName("head")[0];
+  (e.src =
+    "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+    (e.async = !0),
+    (e.onload = () => {
+      window.WebChat.default(
+        {
+          selector: "#webchat",
+          initPayload: "/get_started",
+          customData: {"language": "en"},
+          // socketUrl: "http://localhost:5005/",
+          socketUrl: "https://rasa-demo-chat-ui.herokuapp.com/",
+          // socketUrl: "https://localhost:7000/",
+          // socketPath: "webhook",
+          title: "Title",
+          subtitle: "Subtitle",
+          showFullScreenButton: true,
+          params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+        },
+        null
+      );
+    }),
+    t.insertBefore(e, t.firstChild);
+})();
+</script>
